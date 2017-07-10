@@ -33,6 +33,7 @@ jspm_packages
 
 # Optional npm cache directory
 .npm
+.fusebox
 
 # Optional eslint cache
 .eslintcache
@@ -46,3 +47,4 @@ jspm_packages
 # Yarn Integrity file
 .yarn-integrity
 
+dist/
