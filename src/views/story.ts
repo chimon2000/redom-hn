@@ -48,7 +48,7 @@ class Story {
     el: Element
     storyId: number
 
-    constructor({ id: storyId }) {
+    constructor({ pageOrId: storyId }) {
         this.storyId = storyId
         this.el = el('div', new Loading())
     }

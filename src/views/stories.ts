@@ -5,6 +5,7 @@ import { px, white, em, blue, color } from 'csx'
 import StoryList from '../components/story/story-list/story-list'
 import Loading from '../components/loading/loading'
 import model from '../models/stories'
+import router from '../shared/router'
 
 let h1 = style({
     color: blue.toHexString()
@@ -47,14 +48,14 @@ class Stories {
     listType
     category: string
 
-    constructor({ category = '', page = 1 }) {
+    constructor({ category = '', pageOrId: page = 1 }) {
         this.category = category
         this.page = page
         this.listType = pageToListType[category]
 
         this.el = el('div', new Loading())
-        this.el.addEventListener('user-selected', (e: CustomEvent) => console.log(e.detail))
-        this.el.addEventListener('story-selected', (e: CustomEvent) => console.log(e.detail))
+
+        this.el.addEventListener('user-selected', (e: CustomEvent) => router.update('user', e.detail.id))
     }
 
     async onmount() {

@@ -12,7 +12,7 @@ export default class StoryItem {
                     el('span', `${story.points} points by `),
                     el(`a.${link}`, { onclick: () => this.onUserSelected(story.user) }, story.user),
                     el('span', ` ${story.time_ago} | `),
-                    el(`a.${link}`, { onclick: () => this.onItemSelected(story) }, `${story.comments_count} comments`)
+                    el(`a.${link}`, { href: `#/story/${story.id}` }, `${story.comments_count} comments`)
                 ])
             ])
         ])
