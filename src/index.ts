@@ -3,4 +3,4 @@ import app from './app'
 
 mount(document.body, app)
 
-// app.update('home')
+app.start()

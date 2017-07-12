@@ -5,6 +5,7 @@ import * as UrlPattern from 'url-pattern'
 let router = createRouter(el('div'))
 
 const history = createHistory()
+const pattern = new UrlPattern('#/:category(/:page)')
 
 history.listen((location, action) => {
     console.log(`The current URL is ${location.pathname}${location.search}${location.hash}`)
@@ -17,13 +18,9 @@ export default {
     update(route, data?) {
         this._update(route, Object.assign({ location: history.location }, data))
     },
-    _update: router.update
+    _update: router.update,
+    start() {
+        let { category, page = 1 } = pattern.match(location.hash)
+        this.update(category, { category, page })
+    }
 }
-
-const pattern = new UrlPattern('#/:page(/:stuff)')
-console.log(location.hash)
-console.log(`${pattern.stringify({ page: 'jobs' })}`)
-console.log(pattern.match(location.hash))
-
-console.log(`The current URL is ${location.pathname}${location.search}${location.hash}`)
-console.log(`The current params are ${pattern.match(location.hash)}`)

@@ -43,11 +43,14 @@ const link = style({
 
 class Stories {
     el: Element
+    page: number
     listType
+    category: string
 
-    constructor({ category = '', location }) {
+    constructor({ category = '', page = 1 }) {
+        this.category = category
+        this.page = page
         this.listType = pageToListType[category]
-        console.log(location)
 
         this.el = el('div', new Loading())
         this.el.addEventListener('user-selected', (e: CustomEvent) => console.log(e.detail))
@@ -55,13 +58,11 @@ class Stories {
     }
 
     async onmount() {
-        console.log('mounted Hello')
-
         await model.load({ listType: this.listType })
         const { list: loading } = model.loading
         const { list } = model
 
-        this.update({ loading, list })
+        this.update({ loading, list, page: this.page })
     }
 
     async loadMore(page) {
@@ -85,7 +86,7 @@ class Stories {
                           `.${pager}`,
                           el(
                               `a.${link}`,
-                              { href: `#/${this.listType}/${++page}`, onclick: () => this.loadMore(page) },
+                              { href: `#/${this.category}/${++page}`, onclick: () => this.loadMore(page) },
                               'More...'
                           )
                       )
