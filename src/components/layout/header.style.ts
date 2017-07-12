@@ -22,7 +22,7 @@ export const nav = style(flexRoot, {
 })
 
 export const logoStyle = style({
-    height: ' 30px'
+    height: '38px'
 })
 
 export const link = style(flexRoot, vertical, centerJustified, {

@@ -2,6 +2,7 @@ import { classes } from 'typestyle'
 import { header, nav, logoStyle, link, activeLink } from './header.style'
 import { el } from 'redom'
 import router from '../../shared/router'
+import * as logo from '../../images/logo.svg'
 
 export const Nav = [
     {
@@ -44,6 +45,7 @@ export default class Header {
         this.el = el(
             `.${header}`,
             el(`.${nav}`, [
+                el('img', { className: logoStyle, src: logo, alt: 'logo' }),
                 Nav.map(row => {
                     return navLink(row, false)
                 })
