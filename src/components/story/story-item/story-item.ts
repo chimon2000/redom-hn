@@ -1,5 +1,5 @@
 import { el } from 'redom'
-import { article, index, detail, link, unstyled, unstyledLink } from './story-item.style'
+import { article, index, detail, link, unstyled, unstyledLink } from 'hn-styles/lib/stories/story-item'
 
 export default class StoryItem {
     el: Element

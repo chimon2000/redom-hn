@@ -32,7 +32,7 @@ const vendor = fuse.bundle('vendor').instructions('~ index.ts')
 const app = fuse.bundle('app').instructions(`!> [index.ts]`)
 
 if (!isProduction) {
-    fuse.dev({ port: 8080 })
+    fuse.dev({ port: 8090 })
     app.sourceMaps(true).watch().hmr()
 }
 

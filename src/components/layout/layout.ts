@@ -1,5 +1,6 @@
-import { layout, main } from './layout.style'
 import { el } from 'redom'
+
+import { layout, main } from 'hn-styles/lib/layout/layout'
 
 import Header from './header'
 

@@ -1,8 +1,9 @@
 import { classes } from 'typestyle'
-import { header, nav, logoStyle, link, activeLink } from './header.style'
 import { el } from 'redom'
+
 import router from '../../shared/router'
 import * as logo from '../../images/logo.svg'
+import { header, nav, logoStyle, link, activeLink } from 'hn-styles/lib/layout/header'
 
 export const Nav = [
     {

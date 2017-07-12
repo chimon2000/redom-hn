@@ -1,7 +1,7 @@
 import { el, setChildren } from 'redom'
-
-import { article, child, link, hide, select, more, commentList } from './comment-item.style'
 import { classes } from 'typestyle'
+
+import { article, child, link, hide, select, more, commentList } from 'hn-styles/lib/comments/comment-item'
 
 const children = (comments, onclick) => {
     if (comments.length > 0) {
