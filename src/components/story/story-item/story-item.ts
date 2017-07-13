@@ -10,7 +10,7 @@ export default class StoryItem {
                 el(`a.${unstyledLink}`, { href: story.url }, story.title),
                 el(`.${detail}`, [
                     el('span', `${story.points} points by `),
-                    el(`a.${link}`, { onclick: () => this.onUserSelected(story.user) }, story.user),
+                    el(`a.${link}`, { href: `#/user/${story.user}` }, story.user),
                     el('span', ` ${story.time_ago} | `),
                     el(`a.${link}`, { href: `#/story/${story.id}` }, `${story.comments_count} comments`)
                 ])
@@ -20,15 +20,5 @@ export default class StoryItem {
 
     onunmount() {
         this.el = null
-    }
-
-    onUserSelected(user) {
-        const event = new CustomEvent('user-selected', { detail: user, bubbles: true })
-        this.el.dispatchEvent(event)
-    }
-
-    onItemSelected(story) {
-        const event = new CustomEvent('story-selected', { detail: story, bubbles: true })
-        this.el.dispatchEvent(event)
     }
 }

@@ -71,7 +71,7 @@ class Story {
                           el(`a.${unstyledLink}`, { href: story.url }, story.title),
                           el(`.${detail}`, { className: detail }, [
                               el('span', `${story.points} points by `),
-                              el('a', { href: `/user/${story.user}` }, story.user),
+                              el('a', { href: `/#/user/${story.user}` }, story.user),
                               el('span', ` ${story.time_ago} | `),
                               el('span', {}, `${story.comments_count} comments`)
                           ]),
