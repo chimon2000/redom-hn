@@ -22,7 +22,9 @@ const fuse = FuseBox.init({
         ImageBase64Plugin({ useDefault: true }),
         isProduction &&
             QuantumPlugin({
-                uglify: true
+                removeExportsInterop: false,
+                uglify: true,
+                treeshake: true
             })
     ],
     output: 'dist/$name.js'
