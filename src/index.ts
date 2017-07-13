@@ -4,3 +4,4 @@ import app from './app'
 mount(document.body, app)
 
 app.start()
+app.push('top')

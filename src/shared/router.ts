@@ -27,7 +27,8 @@ class Router {
         this.route = options.route
         this.initData = options.initData
     }
-    update(route, data) {
+
+    update(route, data?) {
         if (route !== this.options.route || data !== this.data) {
             const views = this.views
             const View = views[route]
@@ -38,6 +39,10 @@ class Router {
             setChildren(this.el, [this.view])
         }
         this.view && this.view.update && this.view.update(data, route)
+    }
+
+    push(route) {
+        history.push(`/#/${route}`)
     }
 
     updateRoutes(views) {
@@ -63,7 +68,7 @@ class Router {
 
         history.listen((location, action) => {
             try {
-                if (action === 'POP') {
+                if (action === 'POP' || action === 'PUSH') {
                     let { category: route, pageOrId, ...params } = pattern.match(location.hash)
 
                     this.route = route
@@ -74,4 +79,4 @@ class Router {
     }
 }
 
-export default router(el('div'))
+export default router(el('div'), null, null)

@@ -33,10 +33,6 @@ const navLink = ({ name, route }, active) => {
 
     let element = el(`a.${className}`, { href: `#/${route}` }, name)
 
-    element.addEventListener('click', () => {
-        router.update(route, { category: route })
-    })
-
     return element
 }
 
